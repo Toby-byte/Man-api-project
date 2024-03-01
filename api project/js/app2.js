@@ -2,8 +2,8 @@ document.getElementById("submitBtn").addEventListener("click", function() {
     const city_from_btn = document.getElementById("input-city").value;
 
     city = city_from_btn;
-    api_key_from_openweather = "bd55d87273e8fc13d9bbf3af49feb3d6";
-    access_token = "pk.eyJ1IjoidG9ieWJ5dGUiLCJhIjoiY2x0OGphb3p6MGJkMjJrcWY1ODRydnB1ciJ9.XCu0xDb6g0z7zSIhkN8spA";
+    api_key_from_openweather = "";
+    access_token = "";
     mode = "html";
     units = "metric";
     lang = "en";

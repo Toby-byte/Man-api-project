@@ -2,7 +2,7 @@ document.getElementById("submitBtn").addEventListener("click", function() {
     const city_from_btn = document.getElementById("input-city").value;
 
     city = city_from_btn;
-    apikey_ticketmaster = "wVwazwBOG1AajAqn4Qz1Uijea675atgS";
+    apikey_ticketmaster = "";
     
     const requestOptions = {
         method: "GET",

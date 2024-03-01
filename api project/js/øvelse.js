@@ -3,7 +3,9 @@ const requestOptions = {
     redirect: "follow"
   };
   
-  fetch("https://app.ticketmaster.com/discovery/v2/events.json?apikey=wVwazwBOG1AajAqn4Qz1Uijea675atgS&city=berlin", requestOptions)
+  apikey = "";
+
+  fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apikey}&city=berlin`, requestOptions)
     .then((response) => response.text())
     .then((result) => {
         var obj = JSON.parse(result); // Parse once outside the loop
