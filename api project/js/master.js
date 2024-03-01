@@ -55,15 +55,12 @@ document.getElementById("submitBtn").addEventListener("click", function() {
 
           const obj = JSON.parse(result); // Parse once outside the loop
           
-          for (let i = 0; i < 5; i++) {
+          for (let i = 0; i < 4; i++) {
             // Access the event details
             let eventName = obj._embedded.events[i].name;
             let eventUrl = obj._embedded.events[i].url;
             let eventDate = obj._embedded.events[i].dates.start.localDate;
             let eventTime = obj._embedded.events[i].dates.start.localTime;
-            let currency = obj._embedded.events[0].priceRanges[0].currency;
-            let priceMin = obj._embedded.events[0].priceRanges[0].min;
-            let priceMax = obj._embedded.events[0].priceRanges[0].max;
             let venueAddress = obj._embedded.events[i]._embedded.venues[0].address.line1;
             let cityName = obj._embedded.events[i]._embedded.venues[0].city.name;
 
@@ -75,7 +72,6 @@ document.getElementById("submitBtn").addEventListener("click", function() {
             <h2>${eventName}</h2>
             <p>URL: <a href="${eventUrl}">${eventUrl}</a></p>
             <p>Date: ${eventDate} at ${eventTime}</p>
-            <p>Price: ${currency} ${priceMin} - ${priceMax}</p>
             <p>Venue: ${venueAddress}, ${cityName}</p>
             `;
 
