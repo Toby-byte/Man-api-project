@@ -2,7 +2,7 @@ document.getElementById("submitBtn").addEventListener("click", function() {
     const city_from_btn = document.getElementById("input-city").value;
 
     city = city_from_btn;
-    api_key = "api key here";
+    api_key = "";
     mode = "html";
     units = "metric";
     lang = "en";

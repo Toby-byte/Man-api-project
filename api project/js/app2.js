@@ -2,8 +2,8 @@ document.getElementById("submitBtn").addEventListener("click", function() {
     const city_from_btn = document.getElementById("input-city").value;
 
     city = city_from_btn;
-    api_key_from_openweather = "api key here";
-    access_token = "api key here";
+    api_key_from_openweather = "";
+    access_token = "";
     mode = "html";
     units = "metric";
     lang = "en";
