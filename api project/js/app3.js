@@ -2,7 +2,7 @@ document.getElementById("submitBtn").addEventListener("click", function() {
     const city_from_btn = document.getElementById("input-city").value;
 
     city = city_from_btn;
-    apikey_ticketmaster = "";
+    apikey_ticketmaster = "wVwazwBOG1AajAqn4Qz1Uijea675atgS";
     
     const requestOptions = {
         method: "GET",
@@ -61,10 +61,7 @@ document.getElementById("submitBtn").addEventListener("click", function() {
               });
           } else {
               console.log("No events found.");
-          }
-          
-
-            
+          }    
         })
         .catch((error) => console.error(error));
 });
