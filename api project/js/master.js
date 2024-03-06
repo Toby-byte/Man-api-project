@@ -5,9 +5,6 @@ document.getElementById("submitBtn").addEventListener("click", function() {
     api_key_from_openweather = "";
     access_token = "";
     apikey_ticketmaster = "";
-    mode = "html";
-    units = "metric";
-    lang = "en";
 
 
     const fetchCoordinates = {
@@ -19,16 +16,25 @@ document.getElementById("submitBtn").addEventListener("click", function() {
         .then((response) => response.json()) // Assuming the API returns JSON. Use response.text() if it returns plain text.
         .then((result) => {
             const latitude = result[0].lat; // Accessing latitude inside the promise chain
-            console.log(latitude); // This will log the latitude
             const lontitude = result[0].lon; // Accessing latitude inside the promise chain
-            console.log(lontitude); // This will log the longitude
 
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${lontitude}&appid=${api_key_from_openweather}&mode=${mode}&units=${units}&lang=${lang}`, requestOptions)
+            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${lontitude}&appid=${api_key_from_openweather}&units=metric`, requestOptions)
             .then((response) => response.text())
             .then((result) => {
-                const div = document.createElement('div');
-                div.innerHTML = result;
-                document.getElementById('map').appendChild(div);
+                obj = JSON.parse(result);
+                weather = obj.weather[0].main;
+                temp = obj.main.temp;
+                humidity = obj.main.humidity;
+                wind_speed = obj.wind.speed;
+
+                document.getElementById('city_name').textContent = city;
+                document.getElementById('weather').textContent = weather;
+                document.getElementById('temp').textContent = temp + ' °C';
+                document.getElementById('humidity').textContent ='Humidity: ' + humidity + '%';
+                document.getElementById('wind_speed').textContent ='Wind speed: ' + wind_speed + ' m/s';
+                // const div = document.createElement('div');
+                // div.innerHTML = result;
+                // document.getElementById('map').appendChild(div);
             })
             .catch((error) => console.error(error));
             
@@ -76,7 +82,7 @@ document.getElementById("submitBtn").addEventListener("click", function() {
             `;
 
             // Append the new div to the container
-            document.getElementById("container").appendChild(eventDiv);
+            document.getElementById("container").appendChild(eventDiv); // ændre container til events
 
           }
         })
