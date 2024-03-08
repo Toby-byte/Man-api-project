@@ -3,7 +3,7 @@ document.getElementById("submitBtn").addEventListener("click", function() {
 
     city = city_from_btn;
     api_key_from_openweather = "";
-    access_token = "";
+    access_token_mapbox = "";
     apikey_ticketmaster = "";
 
 
@@ -32,6 +32,7 @@ document.getElementById("submitBtn").addEventListener("click", function() {
                 document.getElementById('temp').textContent = temp + ' °C';
                 document.getElementById('humidity').textContent ='Humidity: ' + humidity + '%';
                 document.getElementById('wind_speed').textContent ='Wind speed: ' + wind_speed + ' m/s';
+                document.getElementById('weather_list').removeAttribute('hidden');
                 // const div = document.createElement('div');
                 // div.innerHTML = result;
                 // document.getElementById('map').appendChild(div);
@@ -42,8 +43,11 @@ document.getElementById("submitBtn").addEventListener("click", function() {
             let image = document.createElement("img");
 
             // Set the source, width, and height of the image
-            image.src = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${lontitude},${latitude},9,0/300x200?access_token=${access_token}`;
+            image.src = `https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/${lontitude},${latitude},9,0/300x200?access_token=${access_token_mapbox}`;
 
+            // When creating the image element, add an alt attribute
+            image.alt = "Map showing weather information for " + city;  
+            
             // Append the image to the body of the document
             document.getElementById('map').appendChild(image);
 

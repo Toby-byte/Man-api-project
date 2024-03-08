@@ -1,8 +1,6 @@
 Used API'S in this project:
-
 https://openweathermap.org/current
 https://home.openweathermap.org/api_keys
-
 
 create requests:
 https://docs.mapbox.com/api/maps/static-images/
